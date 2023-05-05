@@ -97,7 +97,7 @@ Simpangan baku:  1.580683
 ```
 
 ### f.
-Kita dapat menggunakan fungsi dbinom dengan parameter rbinom(n, size, prob),
+Kita dapat menggunakan fungsi dbinom dengan parameter dbinom(n, size, prob),
 - n adalah sebuah vector berisi 0:10
 - size adalah banyak kelahiran = 10
 - prob adalah probabilitas kelahiran bayi laki-laki = 0.488
@@ -105,6 +105,7 @@ Kita dapat menggunakan fungsi dbinom dengan parameter rbinom(n, size, prob),
 Kemudian menggunakan fungsi plot() kita buat histogramnya dengan parameter,
 - x axis = vector 0:10
 - y axis = hasil perhitungan probabilitas kelahiran bayi laki-laki 0:10
+- type adalah tipe grafik = h (histogram)
 - main adalah label histogram = Distribusi Kelahiran Bayi Laki-Laki
 - xlab adalah label x axis = Banyak bayi laki-laki
 - ylab adalah label y axis = Probabilitas
@@ -118,6 +119,8 @@ plot(0:10, dbinom(0:10, 10, 0.488),
 ```
 
 output:
+
+![](images/DistribusiBayiLakiLaki.png)
 
 ## No 2
 
@@ -138,6 +141,11 @@ sehingga,
 dpois(4, 1.8, log = FALSE)
 ```
 
+output:
+```
+0.07230173
+```
+
 ### c.
 Untuk peluang secara kumulatif kita dapat menggunakan fungsi ppois pada r studio dengan parameter, 
 ```
@@ -153,6 +161,12 @@ Karena yang ingin dicari adalah P(q ≤ 4) maka,
 a <- ppois(4, 1.8, lower.tail = TRUE, log = FALSE)
 a
 ```
+
+output:
+```
+0.9635933
+```
+
 kita simpan hasilnya dalam variabel a karena akan digunakan pada nomor 2d
 
 ### d.
@@ -161,14 +175,51 @@ Banyak kematian > 4 sama halnya dengan peluang kumulatif total yaitu 1 dikurangi
 1 - a
 ```
 
+output:
+```
+0.03640666
+```
+
 ### e.
 Pada distribusi poisson nilai Nilai harapan dan Varian adalah sama dengan rate of occurence. Sedangkan standar deviasi adalah akar kuadrat dari varian, sehingga:
+```
+cat('Nilai harapan: ', 1.8)
+cat('Standar Deviasi: ', sqrt(1.8))
+```
+
+output:
 ```
 Nilai harapan = 1.8
 Standar deviasi = sqrt(1.8)
 ```
 
 ### f.
+Kita dapat menggunakan fungsi dpois dengan parameter dpois(n, lambda),
+- n adalah sebuah vector berisi 0:5 (pada histogram ini saya hanya mengambil interval 0:5)
+- lambda adalah rate of occurence = 1.8
+
+Kemudian menggunakan fungsi plot() kita buat histogramnya dengan parameter,
+- x axis = vector 0:5
+- y axis = hasil perhitungan probabilitas kematian 0:5
+- type adalah tipe grafik = h (histogram)
+- main adalah label histogram = Distribusi Kematian Pekerja Pabrik Ban
+- xlab adalah label x axis = Banyak kematian
+- ylab adalah label y axis = Probabilitas
+
+```
+plot(0:5, dpois(0:5, 1.8), 
+     type='h',
+     main='Distribusi Kematian Pekerja Pabrik Ban',
+     xlab='Banyak kematian',
+     ylab='Probabilitas'
+)
+```
+
+output:
+
+### g.
+
+### h.
 
 ## No 3
 
