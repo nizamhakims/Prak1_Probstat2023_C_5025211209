@@ -102,9 +102,19 @@ Kita dapat menggunakan fungsi dbinom dengan parameter rbinom(n, size, prob),
 - size adalah banyak kelahiran = 10
 - prob adalah probabilitas kelahiran bayi laki-laki = 0.488
 
-Kemudian kita gunakan fungsi hist() untuk membuat histogramnya, hasilnya adalah histogram distribusi probabilitas kelahiran bayi laki-laki mulai x = 0 hingga x = 10
+Kemudian menggunakan fungsi plot() kita buat histogramnya dengan parameter,
+- x axis = vector 0:10
+- y axis = hasil perhitungan probabilitas kelahiran bayi laki-laki 0:10
+- main adalah label histogram = Distribusi Kelahiran Bayi Laki-Laki
+- xlab adalah label x axis = Banyak bayi laki-laki
+- ylab adalah label y axis = Probabilitas
 ```
-hist(dbinom(0:10, 10, 0.488))
+plot(0:10, dbinom(0:10, 10, 0.488), 
+     type='h',
+     main='Distribusi Kelahiran Bayi Laki-Laki',
+     xlab='Banyak bayi laki-laki',
+     ylab='Probabilitas'
+)
 ```
 
 output:
