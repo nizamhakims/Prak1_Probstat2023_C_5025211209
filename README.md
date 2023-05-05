@@ -272,17 +272,67 @@ hist(rchisq(500, 10),
 
 output:
 
+![](images/Histogram500DataAcak.png)
 
 ### c.
 Pada distribusi Chi-Square, nilai Nilai Rataan(mean) = df sedangkan Varian = 2*df, sehingga:
 ```
-Mean = 10
-Varian = 2*10
+cat('Mean: ', 10)
+cat('Varian: ', 2*10)
+```
+
+output:
+```
+Mean:  10
+Varian:  20
 ```
 
 ## No 4
 
 ### a.
+Pertama-tama buat vector bangkitan data acak dan cari rata-ratanya, kemudian kita tentukan nilai X1 dan X2 menggunakan fungsi floor() dan ceiling()
+```
+vec <- rnorm(100, 45, 5)
+avg <- mean(vec)
+X1 <- floor(avg)
+X2 <- ceiling(avg)
+```
+
+Untuk menghitung P(X1 ≤ x ≤ X2) sama dengan menghitung P(x ≤ X2) - P(x ≤ X1) sehingga:
+```
+pnorm(X2, 45, 5, lower.tail = TRUE, log.p = FALSE) - pnorm(X1, 45, 5, lower.tail = TRUE, log.p = FALSE)
+```
+
+output:
+```
+Tergantung nilai X1 dan X2, hasil yang paling sering muncul adalah X1 = 44 atau 45 dan X2 = 45 atau 46 dengan output sama-sama 0.07925971
+```
+
+Untuk menghitung z-score dari vec kita dapat menggunakan rumus 
+```
+z = (x - μ) / σ
+```
+- x adalah vector data = vec
+- μ adalah mean = 45
+- σ adalah standar deviasi = 5
+
+sehingga:
+```
+(vec-45)/5
+```
+
+output:
+
+![]()
+
+Untuk membuat plot dari vec kita dapat menggunakan fungsi plot()
+```
+plot(vec)
+```
+
+output:
+
+
 
 ### b.
 Menggunakan fungsi hist() kita dapat membuat histogram bangkitan data acak vec dengan breaks 50,
@@ -310,6 +360,11 @@ sehingga,
 pt(-2.34, 6)
 ```
 
+output:
+```
+0.02892197
+```
+
 ### b.
 Untuk probabilitas kumulatif kita dapat menggunakan fungsi pt(q, df, ncp, lower.tail = TRUE, log.p = FALSE) dengan parameter,
 - q adalah batas interval yang peluangnya akan dicari = 1.34
@@ -323,16 +378,31 @@ Karena yang diminta adalah P(q ≥ 1.34) maka,
 pt(1.34, 6, lower.tail = FALSE)
 ```
 
+output:
+```
+0.11438
+```
+
 ### c.
 Karena Distribusi T-Student yang bersifat simetris dan interval yang diminta adalah x < -1.23 atau x > 1.23 maka kita dapat hanya menghitung salah satunya dan mengalikannya dengan 2
 ```
 2 * pt(-1.23, 3)
 ```
 
+output:
+```
+0.306356
+```
+
 ### d.
 P(-0.94 ≤ x ≤ 0.94) sama halnya dengan menghitung P(x ≤ 0.94) - P(x ≤ -0.94) sehingga kita dapat mendapatkannya menggunakan fungsi pt() sebagai berikut,
 ```
 pt(0.94, 14) - pt(-0.94, 14)
+```
+
+output:
+```
+0.6368457
 ```
 
 ### e. 
@@ -347,6 +417,11 @@ Karena yang diketahui adalah luasan disebelah kiri maka lower.tail = TRUE, sehin
 qt(0.0333, 5, lower.tail = TRUE)
 ```
 
+output:
+```
+-2.337342
+```
+
 ### f.
 Sama dengan no 5e bedanya adalah karena luasan yang diketahui disebelah kanan maka lower.tail = FALSE
 - p adalah luasannya = 0.125
@@ -354,9 +429,34 @@ Sama dengan no 5e bedanya adalah karena luasan yang diketahui disebelah kanan ma
 - lower.tail menunjukkan arah interval yang dicari. Jika lower.tail = TRUE maka intervalnya P(X ≤ q) sedangkan jika lower.tail = FALSE maka intervalnya P(X > q). Pada kasus ini kita gunakan lower.tail = FALSE
 - log.p bernilai TRUE jika prob dalam bentuk log. Pada kasus ini karena prob tidak dalam bentuk log maka kita gunakan log.p = FALSE
 
-sehingga,
+sehingga:
 ```
 qt(0.125, 25, lower.tail = FALSE)
 ```
 
+output:
+```
+1.177716
+```
+
 ### g.
+Diketahui 0.75 adalah luasan didalam interval antara -t score dan t score, karena distribusi T Student bersifat simetris maka luasan diluar kurva adalah 1 - 0.75 = 0.25, 0.125 untuk X > t dan 0.125 untuk X < -t. Sehingga untuk menentukan t score X < t sama halnya dengan 0.125 + 0.75 = 0.875, sehingga:
+```
+qt(0.875, 11, lower.tail = TRUE)
+```
+
+output:
+```
+1.21446
+```
+
+### h.
+Sama seperti nomor 5g, tetapi karena yang diketahui adalah luasan diluar kurva maka t score X < t = 1 - (0.0333/2), dimana 0.0333/2 mewakili luasan X > t. Maka 1 - 0.01665 = 0.98335, sehingga:
+```
+qt(0.98335, 23, lower.tail = TRUE)
+```
+
+output:
+```
+2.264201
+```
