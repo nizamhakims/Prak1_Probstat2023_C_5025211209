@@ -332,7 +332,7 @@ plot(vec)
 
 output:
 
-
+![](images/Plot100DataAcak.png)
 
 ### b.
 Menggunakan fungsi hist() kita dapat membuat histogram bangkitan data acak vec dengan breaks 50,
@@ -340,12 +340,20 @@ Menggunakan fungsi hist() kita dapat membuat histogram bangkitan data acak vec d
 hist(vec, breaks = 50)
 ```
 
+output:
+
+![]()
+
 ### c.
 Menggunakan fungsi var() kita dapat menentukan varian bangkitan data acak vec
 ```
 var(vec)
 ```
 
+output:
+```
+23.08256
+```
 ## No 5
 
 ### a.
