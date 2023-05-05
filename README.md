@@ -342,7 +342,7 @@ hist(vec, breaks = 50)
 
 output:
 
-![]()
+![](images/HistogramOfVec.png)
 
 ### c.
 Menggunakan fungsi var() kita dapat menentukan varian bangkitan data acak vec
