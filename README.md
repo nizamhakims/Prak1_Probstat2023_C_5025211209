@@ -245,7 +245,12 @@ Dapat dilihat pada tabel bahwa banyak kematian berpusat pada interval 0:3 sehing
 ### a.
 Fungsi probabilitas dari distribusi Chi-Square adalah sebagai berikut:
 
-Sedangkan pada r studio untuk mencari probabilitas pada suatu titik x dapat menggunakan fungsi dchisq(x, df, ncp = 0, log = FALSE)
+![](images/RumusChiSquare.png)
+
+Sedangkan pada r studio untuk mencari probabilitas pada suatu titik x dapat menggunakan fungsi:
+```
+dchisq(x, df, ncp = 0, log = FALSE)
+```
 - x adalah titik yang ingin kita cari probabilitasnya
 - df adalah degrees of freedom
 - ncp adalah non-centrality parameter 
@@ -259,8 +264,14 @@ Untuk menggenerate 500 data acak kita dapat menggunakan fungsi rchisq(n, df, ncp
 
 Sedangkan untuk membuat histogram kita dapat menggunakan fungsi hist(), sehingga:
 ```
-hist(rchisq(500, 10))
+hist(rchisq(500, 10),
+     main = "Histogram 500 Data Acak",
+     xlab = "Hasil",
+     ylab = "Frekuensi")
 ```
+
+output:
+
 
 ### c.
 Pada distribusi Chi-Square, nilai Nilai Rataan(mean) = df sedangkan Varian = 2*df, sehingga:
