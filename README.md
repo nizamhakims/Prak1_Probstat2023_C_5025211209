@@ -1,5 +1,9 @@
 # Prak1_Probstat2023_C_5025211209
 
+### Nama : Nizam Hakim
+### NRP  : 5025211209
+
+
 ## No 1
 
 ### a.
@@ -14,9 +18,14 @@ dbinom(x, size, prob)
 - size adalah banyak kelahiran = 10
 - prob adalah probabilitas kelahiran bayi laki-laki = 0.488
 
-sehingga,
+sehingga:
 ```
 dbinom(3, 10, 0.488)
+```
+
+output:
+```
+0.1286265
 ```
 
 ### c.
@@ -30,10 +39,17 @@ pbinom(q, size, prob, lower.tail, log.p).
 - lower.tail menunjukkan arah interval yang dicari. Jika lower.tail = TRUE maka intervalnya P(X ≤ q) sedangkan jika lower.tail = FALSE maka intervalnya P(X > q). Pada kasus ini kita gunakan lower.tail = TRUE
 - log.p bernilai TRUE jika prob dalam bentuk log. Pada kasus ini karena prob tidak dalam bentuk log maka kita gunakan log.p = FALSE
 
+
 Pada kasus ini karena yang ingin dicari adalah peluang kelahiran bayi laki-laki kurang dari 3 maka nilai-nilai yang mungkin adalah 0, 1, 2 sehingga peluang kumulatif yang dicari adalah kelahiran bayi ≤ 2, maka:
 
 ```
 c <- pbinom(2, 10, 0.488, lower.tail = TRUE, log.p = FALSE)
+c
+```
+
+output:
+```
+0.0636442
 ```
 kita simpan hasilnya dalam variabel c karena akan digunakan pada nomor 1d
 
@@ -43,14 +59,24 @@ Karena banyak kelahiran maksimal adalah 10 maka peluang kumulatif kelahiran bayi
 1 - c
 ```
 
+output:
+```
+0.9363558
+```
+
 ### e.
 Nilai harapan untuk distribusi binomial dapat dicari menggunakan rumus µ = np
 - n adalah banyak kelahiran
 - p adalah probabilitas kelahiran bayi laki-laki
 
-sehingga,
+sehingga:
 ```
-10*0.488
+cat('Nilai harapan: ', 10*0.488)
+```
+
+output:
+```
+Nilai harapan:  4.88
 ```
 
 Simpangan baku adalah akar kuadrat dari varian. Rumus untuk mencari varian adalah n*p*(1 - p).
@@ -62,6 +88,12 @@ sehingga,
 ```
 variance <- 10*0.488*(1-0.488)
 simpanganbaku <- sqrt(variance)
+cat('Simpangan baku: ', simpanganbaku)
+```
+
+output:
+```
+Simpangan baku:  1.580683
 ```
 
 ### f.
@@ -74,6 +106,8 @@ Kemudian kita gunakan fungsi hist() untuk membuat histogramnya, hasilnya adalah 
 ```
 hist(dbinom(0:10, 10, 0.488))
 ```
+
+output:
 
 ## No 2
 
