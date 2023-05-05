@@ -217,9 +217,28 @@ plot(0:5, dpois(0:5, 1.8),
 
 output:
 
+![](images/DistribusiKematianPekerjaPabrik.png)
+
 ### g.
+Kita dapat mensimulasikan dengan cara menggenerate random number menggunakan fungsi rpois(n, lambda) dengan parameter,
+- n adalah banyak kejadian yang ingin disimulasikan = 100
+- lambda adalah rate of occurence = 1.8
+
+Kemudian kita tempatkan hasilnya dalam tabel untuk melihat banyaknya dari tiap-tiap kematian menggunakan fungsi table(), sehingga:
+```
+table(rpois(100, 1.8)) 
+```
+
+output:
+```
+ 0  1  2  3  4  6  8 
+23 36 16 16  7  1  1 
+```
+Baris atas adalah kematian sedangkan baris bawah adalah banyaknya kematian
 
 ### h.
+Dapat dilihat pada tabel bahwa banyak kematian berpusat pada interval 0:3 sehingga kematian ≥ 4 dapat dianggap tidak wajar, hal ini bersesuaian dengan perhitungan nomor 2d dimana peluang kematian > 4 hanya sebesar 0.03640666
+
 
 ## No 3
 
