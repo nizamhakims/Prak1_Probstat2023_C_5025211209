@@ -323,7 +323,7 @@ sehingga:
 
 output:
 
-![]()
+![](images/z-score.png)
 
 Untuk membuat plot dari vec kita dapat menggunakan fungsi plot()
 ```
